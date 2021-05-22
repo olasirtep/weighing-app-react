@@ -8,17 +8,40 @@ class App extends React.Component {
     total: 0
   };
 
-  /*display = <Display />;
-  buttons = <Buttons />;*/
+  weighButtonClicked = () => {
+    fetch("/weigh")
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("Weighing complete!");
+        this.setState(
+          {
+            'weight': data.currentWeight,
+            'total': data.currentTotal
+          });
+    });
+  };
+
+  resetButtonClicked = () => {
+    fetch("/reset")
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("Reset complete!");
+        this.setState(
+          {
+            'weight': data.currentWeight,
+            'total': data.currentTotal
+          });
+    });
+  };
 
   render (){
     return (
       <div>
         <div id="weightDisplay" class="text-center row my-5">
-          <Display />
+          <Display weight={this.state.weight} total={this.state.total}/>
         </div>
         <div id="weighButtons">
-          <Buttons />
+          <Buttons weighButtonClicked={this.weighButtonClicked} resetButtonClicked={this.resetButtonClicked} />
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Display () {
+function Display (props) {
     const [weight, setWeight] = React.useState(null);
     const [total, setTotal] = React.useState(null);
 
@@ -15,8 +15,8 @@ function Display () {
 
     return (
       <div>
-        <h1 class="display-1"><span id="currentWeight"></span>{!weight ? "-" : weight} kg</h1>
-        <p class="h3">&sum;: <span id="currentTotal"></span>{!total ? "-" : total} kg</p>
+        <h1 class="display-1"><span id="currentWeight"></span>{!props.weight ? weight : props.weight} kg</h1>
+        <p class="h3">&sum;: <span id="currentTotal"></span>{!props.total ? total : props.total} kg</p>
       </div>
     );
 }
