@@ -5,8 +5,26 @@ import Buttons from "./Buttons";
 class Scale extends React.Component {
   state = {
     weight: 0,
-    total: 0,
+    total: 0
   };
+
+    componentDidMount() {
+        this.loadCurrentData();
+    }
+
+    loadCurrentData() {
+        console.log("loadCurrentData");
+        fetch("/current")
+            .then((res) => res.json())
+            .then((data) => {
+            this.setState(
+                {
+                    'weight': data.currentWeight,
+                    'total': data.currentTotal
+                }
+            );
+        });
+    }
 
   weighButtonClicked = () => {
     fetch("/weigh")
