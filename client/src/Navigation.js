@@ -7,12 +7,12 @@ class Navigation extends React.Component {
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <button class="btn"><a href="/">Punnitus</a></button>
+                    <button onClick={this.props.switchTab} class={this.props.currentTab === 0 ? "btn" : "btn btn-secondary"}>Punnitus</button>
                 </div>
             </div>
             <div class="col">
                 <div class="row">
-                    <button class="btn btn-secondary"><a href="/history">Punnitushistoria</a></button>
+                    <button onClick={this.props.switchTab} class={this.props.currentTab === 1 ? "btn" : "btn btn-secondary"}>Punnitushistoria</button>
                 </div>
             </div>
         </div>

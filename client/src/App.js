@@ -5,14 +5,22 @@ import Navigation from "./Navigation";
 
 class App extends React.Component {
   state = {
-    currentPage: "scale"
+    currentTab: 0
   };
+
+  switchTab = () => {
+    this.setState(
+      {
+        'currentTab': (this.state.currentTab === 0) ? 1 : 0
+      }
+    );
+  }
 
   render (){
     return (
       <div>
-        <Navigation />
-        {this.state.currentPage == "scale" ?
+        <Navigation switchTab={this.switchTab} currentTab={this.state.currentTab} />
+        {this.state.currentTab === 0 ?
         <Scale /> : <History />
         }
       </div>
