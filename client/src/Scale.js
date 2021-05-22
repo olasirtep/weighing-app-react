@@ -1,7 +1,6 @@
 import React from "react";
 import Display from "./Display";
 import Buttons from "./Buttons";
-import Navigation from "./Navigation";
 
 class Scale extends React.Component {
   state = {
@@ -38,7 +37,6 @@ class Scale extends React.Component {
   render (){
     return (
       <div>
-        <Navigation />
         <div id="weightDisplay" class="text-center row my-5">
           <Display weight={this.state.weight} total={this.state.total}/>
         </div>
