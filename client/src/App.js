@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+  let currentWeight, currentTotal;
+
+  React.useEffect(() => {
+    fetch("/current")
+      .then((res) => res.json())
+      .then((data) => {
+        currentWeight = data.currentWeight;
+        currentTotal = data.currentTotal;
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 class="display-1"><span id="currentWeight"></span>{currentWeight} kg</h1>
+		  <p class="h3">&sum;: <span id="currentTotal"></span>{currentTotal} kg</p>
     </div>
   );
 }

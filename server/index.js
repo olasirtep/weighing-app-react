@@ -1,10 +1,11 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
 const fs = require('fs');
 
 // Set server to port 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Initialize server
 const app = express();
@@ -23,6 +24,9 @@ fs.readFile(dataPath, (err, data) => {
     weighData = JSON.parse(data);
     console.log(weighData);
 });
+
+// Serve frontend files from React build folder
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 /*
 *   DIFFERENT API ENDPOINTS
@@ -65,6 +69,11 @@ app.get('/reset', (req, res) => {
     // Generate object and serialize to JSON
     let data = {'currentWeight' : currentWeight, 'currentTotal' : currentTotal};
     res.json(data);
+});
+
+// Other endpoints serve React frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 // Open server
