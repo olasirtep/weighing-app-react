@@ -1,8 +1,8 @@
 'use strict';
 
-const path = require('path');
-const express = require('express');
-const fs = require('fs');
+const path = require('path'); // For resolving file paths to client directories
+const express = require('express'); // Web server
+const fs = require('fs'); // Access to filesystem
 
 // Set server to port 3000
 const PORT = process.env.PORT || 3001;

@@ -1,5 +1,8 @@
 import React from "react";
 
+/*
+*   THIS CLASS IS USED TO RENDER THE ACTUAL WEIGH DISPLAY ON SCALE
+*/
 class Display extends React.Component {
 
     render() {

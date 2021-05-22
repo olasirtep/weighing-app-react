@@ -1,5 +1,8 @@
 import React from "react";
 
+/*
+*   COMPONENT RENDERS THE NAVIGATION ON TOP OF SCREEN
+*/
 class Navigation extends React.Component {
 
   render() {

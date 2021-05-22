@@ -1,5 +1,8 @@
 import React from "react";
 
+/*
+*   THIS COMPONENT IS USED TO RENDER THE BUTTONS FOR TAKING THE WEIGH AND RESETTING THE SCALE
+ */
 class Buttons extends React.Component {
 
   render() {
