@@ -1,24 +1,28 @@
 import React from "react";
+import Display from "./Display";
+import Buttons from "./Buttons";
 
-function App() {
-  const [weight, setWeight] = React.useState(null);
-  const [total, setTotal] = React.useState(null);
+class App extends React.Component {
+  state = {
+    weight: 0,
+    total: 0
+  };
 
-  React.useEffect(() => {
-    fetch("/current")
-      .then((res) => res.json())
-      .then((data) => {
-        setWeight(data.currentWeight);
-        setTotal(data.currentTotal);
-      });
-  }, []);
+  /*display = <Display />;
+  buttons = <Buttons />;*/
 
-  return (
-    <div>
-      <h1 class="display-1"><span id="currentWeight"></span>{!weight ? "-" : weight} kg</h1>
-		  <p class="h3">&sum;: <span id="currentTotal"></span>{!total ? "-" : total} kg</p>
-    </div>
-  );
+  render (){
+    return (
+      <div>
+        <div id="weightDisplay" class="text-center row my-5">
+          <Display />
+        </div>
+        <div id="weighButtons">
+          <Buttons />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

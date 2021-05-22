@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
-  document.getElementById('weightDisplay')
+  document.getElementById('app')
 );
 
 // If you want to start measuring performance in your app, pass a function
